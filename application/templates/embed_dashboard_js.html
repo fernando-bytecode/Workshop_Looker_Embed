@@ -1,0 +1,23 @@
+<! doctype html>
+<style>
+    .looker_iframe {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+<script>
+window.addEventListener("message", function(event) {
+  if (event.source === document.getElementById("looker_frame").contentWindow) {
+    if (event.origin === "https://looker.bytecode.io") {
+      console.log(JSON.parse(event.data));
+    }
+  }
+});
+</script>
+<title> This is my First Embed Dashboard </title>
+<body>
+<h1>My First Looker Embed</h1>
+    <div class="container">
+        <iframe id="looker_frame" class="looker_iframe" src='{{embed_url}}'></iframe>
+    </div>
+</body>

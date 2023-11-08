@@ -1,0 +1,14 @@
+<! doctype html>
+<style>
+    .looker_iframe {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+<title> This is {{first_name}} First Embed Dashboard </title>
+<body>
+<h1>My {{first_name}} Looker Embed</h1>
+    <div class="container">
+        <iframe id="looker_frame" class="looker_iframe" src='{{embed_url}}'></iframe>
+    </div>
+</body>

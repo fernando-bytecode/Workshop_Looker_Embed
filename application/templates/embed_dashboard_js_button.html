@@ -1,0 +1,38 @@
+<! doctype html>
+<style>
+    .looker_iframe {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+window.addEventListener("message", function(event) {
+  if (event.source === document.getElementById("looker_frame").contentWindow) {
+    if (event.origin === "https://looker.bytecode.io") {
+      console.log(JSON.parse(event.data));
+    }
+  }
+});
+
+function runDashboard(){
+  var my_iframe = document.getElementById("looker_frame");
+  var my_request = JSON.stringify(
+    {
+      type: "dashboard:run"
+    }
+  );
+  
+  my_iframe.contentWindow.postMessage(my_request, 'https://looker.bytecode.io');
+}
+</script>
+<title> This is my First Embed Dashboard </title>
+<body>
+<h1>My First Looker Embed</h1>
+    <div>
+      <button onclick="runDashboard();">ReRun</button>
+    </div>
+    <div class="container">
+        <iframe id="looker_frame" class="looker_iframe" src='{{embed_url}}'></iframe>
+    </div>
+</body>
