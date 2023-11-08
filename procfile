@@ -1,1 +1,1 @@
-rung_app: /opt/app/env/bin/gunicorn -b 0.0.0.0:8080 application.app:app
+run_app: /opt/app/env/bin/gunicorn -b 0.0.0.0:8080 application.app:app

@@ -41,6 +41,8 @@ def embed_dashboard():
     models=LOOKER_MODELS
     external_group_id=""
 
+    print(target, first_name, last_name, external_user_id, session_length, force_logout_login, permissions, group_ids,models, external_group_id )
+
     embed_url=create_embeded_url(
         target=target, 
         first_name=first_name, 
